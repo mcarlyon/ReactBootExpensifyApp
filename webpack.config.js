@@ -8,8 +8,9 @@ module.exports = (env, argv) => {
         entry: './src/app.js', //Tells webpack where it should start
         stats: {warnings:false},
         output: {
-            path: path.join(__dirname, 'public'),
-            filename: 'bundle.js'
+            path: path.join(__dirname, 'public', 'dist'),
+            filename: 'bundle.js',
+            publicPath: '/dist/'
         },
         module: {
             rules: [{
@@ -42,12 +43,8 @@ module.exports = (env, argv) => {
         ],
         devtool: isProd ? 'source-map' : 'inline-cheap-module-source-map',
         devServer: {
-            static: [{
-                directory: path.join(__dirname, 'public'),
-                watch: true,
-                serveIndex: true
-            }],
-            historyApiFallback: true
+            static: path.join(__dirname, 'public'),
+            historyApiFallback: true,
         }
     }
 }
