@@ -11,7 +11,7 @@
     "dev-server": "webpack serve --mode development",
     "test": "jest --config=jest.config.json",
     "start": "node server/server.js",
-    "heroku-postbuild": "yarn run build:prod"
+    "heroku-postbuild": "npm run build:prod"
   },
   "dependencies": {
     "@babel/core": "^7.15.5",
@@ -49,5 +49,9 @@
   },
   "devDependencies": {
     "webpack-cli": "^4.8.0"
+  },
+  "engines": {
+    "node": "^15.14.0",
+    "npm": "^7.10.0"
   }
 }
